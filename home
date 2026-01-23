@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс по Умному Дому - Профессиональное обучение</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, #3125c0, #b6324d);
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #3125c0;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(90deg, #3125c0, #b6324d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #3125c0;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #2819a0;
+            box-shadow: 0 10px 25px rgba(49, 37, 192, 0.3);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f0f0;
+        }
+
+        .hero-image {
+            aspect-ratio: 1;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 4px solid #3125c0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #000000;
+            color: #ffffff;
+            padding: 3rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number.color-1 {
+            color: #3125c0;
+        }
+
+        .stat-number.color-2 {
+            color: #b6324d;
+        }
+
+        .stat-label {
+            color: #999;
+            font-size: 0.875rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background: #f9f9f9;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, #3125c0, #b6324d);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-icon svg {
+            width: 2rem;
+            height: 2rem;
+            color: #ffffff;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-card p {
+            color: #666;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .package-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .package-card.popular {
+            border-color: #b6324d;
+        }
+
+        .popular-badge {
+            background: #b6324d;
+            color: #ffffff;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .package-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .package-content {
+            padding: 2rem;
+        }
+
+        .package-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .package-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #ffffff;
+        }
+
+        .package-title h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .package-title p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .package-price {
+            margin-bottom: 1.5rem;
+        }
+
+        .package-price .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .package-price .period {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .package-features li svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        /* Bundle Offer */
+        .bundle-offer {
+            margin-top: 3rem;
+            background: linear-gradient(90deg, #000000, #1a1a1a, #000000);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .bundle-offer h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .bundle-offer p {
+            font-size: 1.25rem;
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .bundle-pricing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .old-price {
+            font-size: 1.5rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .new-price {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #3125c0, #b6324d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .savings-badge {
+            display: inline-block;
+            background: #b6324d;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(90deg, #3125c0, #b6324d);
+            color: #ffffff;
+            font-size: 1.125rem;
+        }
+
+        .btn-gradient:hover {
+            box-shadow: 0 10px 30px rgba(49, 37, 192, 0.5);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #3125c0, #b6324d);
+            padding: 5rem 0;
+            color: #ffffff;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: #ffffff;
+            color: #3125c0;
+        }
+
+        .btn-white:hover {
+            background: #f0f0f0;
+        }
+
+        .btn-black {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .btn-black:hover {
+            background: #1a1a1a;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            color: #666;
+        }
+
+        .modal-header p strong {
+            color: #000000;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3125c0;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-close {
+            background: transparent;
+            color: #666;
+            border: none;
+            padding: 0.75rem;
+        }
+
+        .btn-close:hover {
+            color: #000000;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .packages-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .bundle-offer h3 {
+                font-size: 1.75rem;
+            }
+
+            .new-price {
+                font-size: 2rem;
+            }
+
+            .cta h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-badge">Профессиональное обучение</div>
+                    <h1>Станьте экспертом в <span class="hero-gradient">умных домах</span></h1>
+                    <p>Комплексное обучение от технологий до программирования. Три специализированных пакета для вашего профессионального роста.</p>
+                    <div class="hero-buttons">
+                        <a href="#packages" class="btn btn-primary">
+                            Выбрать пакет
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="#benefits" class="btn btn-secondary">Узнать больше</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1717323454555-f053c31ff4b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGhvbWUlMjBjb250cm9sJTIwcGFuZWx8ZW58MXx8fHwxNzY5MTU3MDkwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Умный дом">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number color-1">3</div>
+                    <div class="stat-label">Пакета обучения</div>
+                </div>
+                <div>
+                    <div class="stat-number color-2">50+</div>
+                    <div class="stat-label">Часов практики</div>
+                </div>
+                <div>
+                    <div class="stat-number color-1">500+</div>
+                    <div class="stat-label">Выпускников</div>
+                </div>
+                <div>
+                    <div class="stat-number color-2">15+</div>
+                    <div class="stat-label">Технологий</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Почему выбирают нас?</h2>
+                <p>Мы предлагаем уникальную программу обучения с акцентом на практику</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                    <h3>Экспертные знания</h3>
+                    <p>Обучение от практикующих специалистов с опытом более 10 лет</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3>Практический подход</h3>
+                    <p>Работа с реальным оборудованием и проектами</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h3>Сертификат</h3>
+                    <p>Официальный документ о прохождении курса</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Выберите свой пакет обучения</h2>
+                <p>Каждый пакет разработан для определенной специализации в области умных домов</p>
+            </div>
+            <div class="packages-grid">
+                <!-- Package 1: Технологии -->
+                <div class="package-card">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1646640323483-503252dbaf7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJpY2FsJTIwaW5zdGFsbGF0aW9uJTIwd29ya3xlbnwxfHx8fDE3NjkxMDkyNjR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Технологии">
+                    </div>
+                    <div class="package-content">
+                        <div class="package-header">
+                            <div class="package-icon" style="background-color: #3125c0;">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="package-title">
+                                <h3>Технологии</h3>
+                                <p>Освойте оборудование</p>
+                            </div>
+                        </div>
+                        <div class="package-price">
+                            <div class="price">49 990 ₽</div>
+                            <div class="period">Полный курс</div>
+                        </div>
+                        <ul class="package-features">
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Электро карнизы и автоматика</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Подсветка лестницы и мебели</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Системы тёплого пола DEVI</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Охранные системы AJAX</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Контроллеры умного дома</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Датчики и сенсоры</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Различия УД систем</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Практические занятия</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; justify-content: center; background-color: #3125c0;" onclick="openModal('Технологии', '49 990 ₽')">
+                            Записаться на курс
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 2: Менеджмент -->
+                <div class="package-card popular">
+                    <div class="popular-badge">Самый популярный</div>
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1758876202522-df2c0dbd0d52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9qZWN0JTIwbWFuYWdlbWVudCUyMHBsYW5uaW5nfGVufDF8fHx8MTc2OTE1MDkxNHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Менеджмент">
+                    </div>
+                    <div class="package-content">
+                        <div class="package-header">
+                            <div class="package-icon" style="background-color: #b6324d;">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                            </div>
+                            <div class="package-title">
+                                <h3>Менеджмент</h3>
+                                <p>Управление проектами</p>
+                            </div>
+                        </div>
+                        <div class="package-price">
+                            <div class="price">59 990 ₽</div>
+                            <div class="period">Полный курс</div>
+                        </div>
+                        <ul class="package-features">
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Сметная работа умного дома</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Расчет стоимости проектов</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Проектный менеджмент</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Инструменты управления</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Работа с клиентами</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Контроль сроков и бюджета</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Документация проектов</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#b6324d" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Практические кейсы</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; justify-content: center; background-color: #b6324d;" onclick="openModal('Менеджмент', '59 990 ₽')">
+                            Записаться на курс
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 3: Проектирование -->
+                <div class="package-card">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY5MTk3OTIxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Проектирование">
+                    </div>
+                    <div class="package-content">
+                        <div class="package-header">
+                            <div class="package-icon" style="background-color: #3125c0;">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                            </div>
+                            <div class="package-title">
+                                <h3>Проектирование</h3>
+                                <p>Создание и программирование</p>
+                            </div>
+                        </div>
+                        <div class="package-price">
+                            <div class="price">69 990 ₽</div>
+                            <div class="period">Полный курс</div>
+                        </div>
+                        <ul class="package-features">
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Проектирование систем УД</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Программирование контроллеров</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Создание сценариев автоматизации</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Интеграция систем</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Настройка протоколов</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Отладка и тестирование</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Техническая документация</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="#3125c0" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Реальные проекты</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; justify-content: center; background-color: #3125c0;" onclick="openModal('Проектирование', '69 990 ₽')">
+                            Записаться на курс
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bundle Offer -->
+            <div class="bundle-offer">
+                <h3>Все три пакета вместе</h3>
+                <p>Получите полное образование специалиста по умным домам</p>
+                <div class="bundle-pricing">
+                    <span class="old-price">179 970 ₽</span>
+                    <span class="new-price">149 990 ₽</span>
+                </div>
+                <div class="savings-badge">Экономия 29 980 ₽</div>
+                <button class="btn btn-gradient" onclick="openModal('Все три пакета', '149 990 ₽')">
+                    Купить все пакеты
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Готовы начать обучение?</h2>
+                <p>Свяжитесь с нами для получения консультации и выбора подходящего пакета</p>
+                <div class="cta-buttons">
+                    <a href="tel:+79991234567" class="btn btn-white">Позвонить нам</a>
+                    <a href="mailto:info@smarthome-academy.ru" class="btn btn-black">Написать Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Запись на курс</h3>
+                <p>Пакет: <strong id="modal-package-name"></strong></p>
+                <p>Стоимость: <strong id="modal-package-price"></strong></p>
+            </div>
+            <form id="enrollment-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; background-color: #3125c0;">
+                        Отправить заявку
+                    </button>
+                    <button type="button" class="btn btn-close" onclick="closeModal()">Закрыть</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal(packageName, packagePrice) {
+            document.getElementById('modal-package-name').textContent = packageName;
+            document.getElementById('modal-package-price').textContent = packagePrice;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.getElementById('enrollment-form').reset();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                package: document.getElementById('modal-package-name').textContent
+            };
+
+            // Here you would typically send this data to your server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+            
+            closeModal();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
