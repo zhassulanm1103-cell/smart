@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Академия умного дома</title>
+
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-light: #e5e7eb;
+            --bg-light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            line-height: 1.7;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-main);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 96px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 520px;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 96px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: var(--bg-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .benefit-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+        }
+
+        /* Packages */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .package-card {
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .package-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .package-content {
+            padding: 32px;
+        }
+
+        .package-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .package-content p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .package-content ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .package-content ul li {
+            margin-bottom: 12px;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .modal-content p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+            font-family: inherit;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content,
+            .benefits-grid,
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container hero-content">
+        <div>
+            <div class="hero-badge">Профессиональное обучение</div>
+            <h1>Академия<br>умного дома</h1>
+            <p>
+                Обучение технологиям, управлению и проектированию
+                систем умного дома для специалистов и компаний.
+            </p>
+            <div class="hero-buttons">
+                <a href="#packages" class="btn btn-primary">Выбрать направление</a>
+                <a href="#benefits" class="btn btn-secondary">О программе</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1717323454555-f053c31ff4b4" alt="">
+        </div>
+    </div>
+</section>
+
+<!-- Benefits -->
+<section id="benefits" class="benefits">
+    <div class="container">
+        <div class="section-header">
+            <h2>Почему выбирают нас</h2>
+            <p>Системный подход, практика и ориентация на реальные проекты</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Экспертный уровень</h3>
+                <p>Преподаватели — практикующие специалисты отрасли.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Практика</h3>
+                <p>Работа с реальными системами и сценариями.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Сертификация</h3>
+                <p>Подтверждение квалификации по итогам обучения.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Packages -->
+<section id="packages">
+    <div class="container">
+        <div class="section-header">
+            <h2>Направления обучения</h2>
+            <p>Выберите специализацию под ваши задачи</p>
+        </div>
+
+        <div class="packages-grid">
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1646640323483-503252dbaf7d" alt="">
+                <div class="package-content">
+                    <h3>Технологии</h3>
+                    <p>Оборудование и инженерные системы умного дома.</p>
+                    <ul>
+                        <li>• Автоматика и сенсоры</li>
+                        <li>• Охранные системы</li>
+                        <li>• Практические занятия</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openModal('Технологии')">Получить консультацию</button>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1758876202522-df2c0dbd0d52" alt="">
+                <div class="package-content">
+                    <h3>Менеджмент</h3>
+                    <p>Управление проектами умного дома.</p>
+                    <ul>
+                        <li>• Сметы и бюджеты</li>
+                        <li>• Работа с клиентами</li>
+                        <li>• Контроль сроков</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openModal('Менеджмент')">Получить консультацию</button>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1698919585693-191c51b66cde" alt="">
+                <div class="package-content">
+                    <h3>Проектирование</h3>
+                    <p>Создание и программирование систем.</p>
+                    <ul>
+                        <li>• Архитектура УД</li>
+                        <li>• Сценарии автоматизации</li>
+                        <li>• Интеграции</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openModal('Проектирование')">Получить консультацию</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <h2>Готовы обсудить обучение?</h2>
+        <p>Оставьте заявку — мы подберём оптимальное решение</p>
+        <button class="btn btn-primary" onclick="openModal('Консультация')">Связаться с нами</button>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3>Заявка на консультацию</h3>
+        <p>Направление: <strong id="modal-title"></strong></p>
+        <input type="text" placeholder="Имя">
+        <input type="tel" placeholder="Телефон">
+        <input type="email" placeholder="Email">
+        <button class="btn btn-primary" style="width:100%">Отправить</button>
+    </div>
+</div>
+
+<script>
+function openModal(title) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal').classList.add('active');
+}
+
+document.getElementById('modal').addEventListener('click', e => {
+    if (e.target.id === 'modal') {
+        e.target.classList.remove('active');
+    }
+});
+</script>
+
+</body>
+</html>
